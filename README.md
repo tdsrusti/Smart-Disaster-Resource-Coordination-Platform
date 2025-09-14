@@ -1,18 +1,27 @@
-# Salesforce DX Project: Next Steps
+# 🚀 Smart Disaster Resource Coordination Platform
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+## Overview
+A comprehensive Salesforce-based platform for coordinating volunteers, resources, and shelters during natural disasters with real-time tracking and intelligent automation.
 
-## How Do You Plan to Deploy Your Changes?
+## 🎯 Key Features
+- **Automated Volunteer Assignment**: AI-powered matching based on skills and location
+- **Real-time Resource Tracking**: Inventory management with automatic alerts
+- **Crisis Management Dashboard**: Live visualization of all disaster operations  
+- **Smart Shelter Management**: Occupancy tracking with capacity alerts
+- **Mobile-Ready Interface**: Lightning Web Components for field access
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+## 🏗️ Architecture
+- **Custom Objects**: 5 main objects with relationships
+- **Automation**: 3 Flows + 1 Scheduled Apex job
+- **UI Components**: Lightning Web Component for crisis mapping
+- **Reports & Dashboards**: Real-time operational insights
 
-## Configure Your Salesforce DX Project
+## 🚀 Quick Deployment
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+### Prerequisites
+```bash
+# Install Salesforce CLI
+npm install -g @salesforce/cli
 
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+# Authenticate to your org
+sfdx auth:web:login -a myorg
