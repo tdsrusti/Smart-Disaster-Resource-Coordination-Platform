@@ -412,10 +412,6 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
-                    <name>label</name>
-                    <value>Tabs</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
                     <name>tabs</name>
                     <value>Facet-cd860a3d-e444-4713-9614-f0e06015116a</value>
                 </componentInstanceProperties>

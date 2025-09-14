@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disaster_Highlights</fullName>
+    <fields>Disaster_Type__c</fields>
+    <fields>Severity_Level__c</fields>
+    <fields>Start_Date__c</fields>
+    <fields>End_Date__c</fields>
+    <fields>Status__c</fields>
+    <label>Disaster Highlights</label>
+</CompactLayout>

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
+
+    <!-- Custom Objects -->
     <types>
         <members>Disaster__c</members>
         <members>Shelter__c</members>
@@ -8,6 +10,42 @@
         <members>Request__c</members>
         <name>CustomObject</name>
     </types>
+
+    <!-- Layouts -->
+    <types>
+        <members>Disaster__c-Disaster Layout</members>
+        <members>Request__c-Request Layout</members>
+        <members>Resorce__c-Resorce Layout</members>
+        <members>Shelter__c-Shelter Layout</members>
+        <members>Volunteer__c-Volunteer Layout</members>
+        <name>Layout</name>
+    </types>
+
+    <!-- Compact Layouts -->
+    <types>
+        <members>Disaster__c-Primary</members>
+        <members>Request__c-Primary</members>
+        <members>Resorce__c-Primary_Compact_Layout</members>
+        <members>Shelter__c-Primary</members>
+        <members>Volunteer__c-Primary</members>
+        <name>CompactLayout</name>
+    </types>
+
+    <!-- List Views -->
+    <types>
+        <members>Disaster__c.All</members>
+        <members>Request__c.All</members>
+        <members>Resorce__c.All</members>
+        <members>Shelter__c.All</members>
+        <members>Volunteer__c.All</members>
+        <name>ListView</name>
+    </types>
+
+    <!-- FlexiPages -->
+    <types>
+        <members>*</members>
+        <name>FlexiPage</name>
+    </types>
+
     <version>57.0</version>
 </Package>
-git add manifest/
