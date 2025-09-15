@@ -47,5 +47,17 @@
         <name>FlexiPage</name>
     </types>
 
-    <version>57.0</version>
+    <types>
+        <members>*</members>
+        <name>Profile</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CustomApplication</name>
+    </types>
+    <version>59.0</version>
 </Package>
