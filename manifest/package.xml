@@ -22,14 +22,7 @@
     </types>
 
     <!-- Compact Layouts -->
-    <types>
-        <members>Disaster__c-Primary</members>
-        <members>Request__c-Primary</members>
-        <members>Resorce__c-Primary_Compact_Layout</members>
-        <members>Shelter__c-Primary</members>
-        <members>Volunteer__c-Primary</members>
-        <name>CompactLayout</name>
-    </types>
+   
 
     <!-- List Views -->
     <types>
