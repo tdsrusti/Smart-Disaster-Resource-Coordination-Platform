@@ -101,6 +101,30 @@
                 <identifier>RecordLocation_cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Storage_Location__c</fieldItem>
+                <identifier>RecordStorage_Location__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Availability_Status__c</fieldItem>
+                <identifier>RecordAvailability_Status__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Cost_Per_Unit__c</fieldItem>
+                <identifier>RecordCost_Per_Unit__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Supplier__c</fieldItem>
+                <identifier>RecordSupplier__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-2400168c-37d6-4e22-99e9-75c470586edd</name>
         <type>Facet</type>
     </flexiPageRegions>

@@ -1,0 +1,230 @@
+<template>
+    <lightning-card title="Resource Dashboard" icon-name="utility:resource_capacity">
+        <div slot="actions">
+            <lightning-button-icon 
+                icon-name="utility:refresh" 
+                variant="border" 
+                onclick={refreshData}
+                alternative-text="Refresh">
+            </lightning-button-icon>
+            <lightning-button-icon 
+                icon-name="utility:settings" 
+                variant="border" 
+                onclick={openSettings}
+                alternative-text="Settings">
+            </lightning-button-icon>
+        </div>
+        
+        <div class="slds-p-horizontal_medium">
+            <!-- Disaster Overview Summary -->
+            <template if:true={disasterSummary}>
+                <lightning-card title="Disaster Overview" variant="narrow" class="slds-m-bottom_medium">
+                    <div class="slds-grid slds-wrap slds-gutters_small">
+                        <div class="slds-col slds-size_1-of-3">
+                            <div class="summary-stat">
+                                <h3 class="slds-text-heading_large">{disasterSummary.totalShelters}</h3>
+                                <p class="slds-text-body_small">Active Shelters</p>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-3">
+                            <div class="summary-stat">
+                                <h3 class="slds-text-heading_large">{disasterSummary.totalOccupancy}</h3>
+                                <p class="slds-text-body_small">Total Occupancy</p>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-3">
+                            <div class="summary-stat">
+                                <h3 class="slds-text-heading_large">{disasterSummary.pendingRequests}</h3>
+                                <p class="slds-text-body_small">Pending Requests</p>
+                            </div>
+                        </div>
+                    </div>
+                </lightning-card>
+            </template>
+
+            <!-- Critical Resources Alert -->
+            <template if:true={showCriticalResources}>
+                <lightning-card title="Critical Stock Levels" variant="narrow" class="slds-m-bottom_medium">
+                    <div slot="actions">
+                        <lightning-badge label={criticalResourcesCount} variant="error"></lightning-badge>
+                    </div>
+                    <template for:each={criticalResources} for:item="resource">
+                        <div key={resource.Id} class="slds-box slds-box_x-small slds-m-bottom_x-small slds-theme_error">
+                            <div class="slds-grid slds-grid_align-spread">
+                                <div class="slds-col">
+                                    <h3 class="slds-text-heading_small">{resource.Name}</h3>
+                                    <p class="slds-text-body_small">
+                                        <lightning-formatted-text value={resource.Resource_Type__c}></lightning-formatted-text>
+                                    </p>
+                                </div>
+                                <div class="slds-col slds-no-flex">
+                                    <p class="slds-text-align_right">
+                                        <strong>{resource.Stock_Level__c}</strong> {resource.Unit__c}
+                                    </p>
+                                    <p class="slds-text-body_small slds-text-align_right">
+                                        Min: {resource.Minimum_Threshold__c}
+                                    </p>
+                                </div>
+                            </div>
+                            <template if:true={resource.Storage_Location__c}>
+                                <p class="slds-text-body_small slds-m-top_x-small">
+                                    <lightning-icon icon-name="utility:location" size="xx-small"></lightning-icon>
+                                    {resource.Storage_Location__c}
+                                </p>
+                            </template>
+                        </div>
+                    </template>
+                </lightning-card>
+            </template>
+            
+            <!-- Shelter Capacity Overview -->
+            <lightning-card title="Shelter Capacity Overview" variant="narrow" class="slds-m-bottom_medium">
+                <div slot="actions">
+                    <lightning-button 
+                        label="View All" 
+                        variant="neutral" 
+                        onclick={viewAllShelters}>
+                    </lightning-button>
+                </div>
+                <div class="capacity-container">
+                    <template if:true={hasShelters}>
+                        <template for:each={shelters} for:item="shelter">
+                            <div key={shelter.Id} class="capacity-item slds-box slds-box_x-small slds-m-bottom_small">
+                                <div class="slds-grid slds-grid_align-spread slds-m-bottom_x-small">
+                                    <div class="slds-col">
+                                        <h4 class="slds-text-heading_small">{shelter.Name}</h4>
+                                        <p class="slds-text-body_small">
+                                            <lightning-formatted-text value={shelter.Facility_Type__c}></lightning-formatted-text>
+                                        </p>
+                                    </div>
+                                    <div class="slds-col slds-no-flex">
+                                        <span class={shelter.statusClass}>
+                                            {shelter.Operational_Status__c}
+                                        </span>
+                                    </div>
+                                </div>
+                                
+                                <lightning-progress-bar 
+                                    value={shelter.Capacity_Utilization__c} 
+                                    variant={shelter.capacityVariant}
+                                    class="slds-m-bottom_x-small">
+                                </lightning-progress-bar>
+                                
+                                <div class="slds-grid slds-grid_align-spread">
+                                    <div class="slds-col">
+                                        <p class="slds-text-body_small">
+                                            {shelter.Current_Occupancy__c} / {shelter.Capacity__c} occupants
+                                        </p>
+                                    </div>
+                                    <div class="slds-col slds-no-flex">
+                                        <p class="slds-text-body_small">
+                                            {shelter.utilizationDisplay}% utilized
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <template if:true={shelter.Special_Needs_Support__c}>
+                                    <div class="slds-m-top_x-small">
+                                        <lightning-pill label="Special Needs" variant="info"></lightning-pill>
+                                    </div>
+                                </template>
+                            </div>
+                        </template>
+                    </template>
+                    
+                    <template if:false={hasShelters}>
+                        <div class="slds-text-align_center slds-p-vertical_large">
+                            <lightning-icon icon-name="utility:info" size="large" variant="inverse"></lightning-icon>
+                            <p class="slds-text-heading_medium slds-m-top_small">No Active Shelters</p>
+                            <p class="slds-text-body_regular">No shelters are currently available for this disaster.</p>
+                        </div>
+                    </template>
+                </div>
+            </lightning-card>
+            
+            <!-- Pending Requests -->
+            <lightning-card title="Pending Resource Requests" variant="narrow" class="slds-m-bottom_medium">
+                <div slot="actions">
+                    <lightning-badge label={pendingRequestsCount} variant="warning"></lightning-badge>
+                </div>
+                
+                <template if:true={hasPendingRequests}>
+                    <lightning-datatable 
+                        data={pendingRequests}
+                        columns={requestColumns}
+                        key-field="Id"
+                        onrowaction={handleRowAction}
+                        show-row-number-column
+                        resize-column-disabled>
+                    </lightning-datatable>
+                </template>
+                
+                <template if:false={hasPendingRequests}>
+                    <div class="slds-text-align_center slds-p-vertical_medium">
+                        <lightning-icon icon-name="utility:success" size="medium" variant="success"></lightning-icon>
+                        <p class="slds-text-heading_small slds-m-top_small">All Requests Processed</p>
+                        <p class="slds-text-body_small">No pending resource requests at this time.</p>
+                    </div>
+                </template>
+            </lightning-card>
+
+            <!-- Resource Allocation Recommendations -->
+            <template if:true={hasRecommendations}>
+                <lightning-card title="Allocation Recommendations" variant="narrow">
+                    <div slot="actions">
+                        <lightning-button 
+                            label="Generate New" 
+                            variant="brand" 
+                            onclick={generateRecommendations}>
+                        </lightning-button>
+                    </div>
+                    
+                    <template for:each={recommendations} for:item="rec">
+                        <div key={rec.requestId} class="recommendation-item slds-box slds-box_x-small slds-m-bottom_small">
+                            <div class="slds-grid slds-grid_align-spread slds-m-bottom_x-small">
+                                <div class="slds-col">
+                                    <h4 class="slds-text-heading_small">{rec.resourceName}</h4>
+                                    <p class="slds-text-body_small">for {rec.shelterName}</p>
+                                </div>
+                                <div class="slds-col slds-no-flex">
+                                    <lightning-pill label={rec.allocationStrategy} variant={rec.priorityVariant}></lightning-pill>
+                                </div>
+                            </div>
+                            
+                            <div class="slds-grid slds-gutters_small slds-m-bottom_x-small">
+                                <div class="slds-col slds-size_1-of-3">
+                                    <p class="slds-text-body_small">Requested: <strong>{rec.requestedQuantity}</strong></p>
+                                </div>
+                                <div class="slds-col slds-size_1-of-3">
+                                    <p class="slds-text-body_small">Recommended: <strong>{rec.recommendedQuantity}</strong></p>
+                                </div>
+                                <div class="slds-col slds-size_1-of-3">
+                                    <p class="slds-text-body_small">Available: <strong>{rec.availableStock}</strong></p>
+                                </div>
+                            </div>
+                            
+                            <p class="slds-text-body_small slds-text-color_weak">{rec.reasoning}</p>
+                            
+                            <div class="slds-m-top_small">
+                                <lightning-button 
+                                    label="Approve" 
+                                    variant="success" 
+                                    size="small"
+                                    data-rec-id={rec.requestId}
+                                    onclick={approveRecommendation}>
+                                </lightning-button>
+                                <lightning-button 
+                                    label="Modify" 
+                                    variant="neutral" 
+                                    size="small"
+                                    data-rec-id={rec.requestId}
+                                    onclick={modifyRecommendation}>
+                                </lightning-button>
+                            </div>
+                        </div>
+                    </template>
+                </lightning-card>
+            </template>
+        </div>
+    </lightning-card>
+</template>

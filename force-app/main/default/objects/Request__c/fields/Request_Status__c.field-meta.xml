@@ -12,7 +12,7 @@
             <sorted>false</sorted>
             <value>
                 <fullName>Pending</fullName>
-                <default>true</default>
+                <default>false</default>
                 <label>Pending</label>
             </value>
             <value>
@@ -29,6 +29,16 @@
                 <fullName>Fulfilled</fullName>
                 <default>false</default>
                 <label>Fulfilled</label>
+            </value>
+            <value>
+                <fullName>Submitted</fullName>
+                <default>true</default>
+                <label>Submitted</label>
+            </value>
+            <value>
+                <fullName>Under Review</fullName>
+                <default>false</default>
+                <label>Under Review</label>
             </value>
         </valueSetDefinition>
     </valueSet>

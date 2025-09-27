@@ -147,7 +147,7 @@
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
-    <compactLayoutAssignment>Primary_Compact_Layout</compactLayoutAssignment>
+    <compactLayoutAssignment>Resource_Mobile</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
@@ -161,7 +161,7 @@
     <externalSharingModel>Private</externalSharingModel>
     <label>Resource</label>
     <nameField>
-        <label>Resorce Name</label>
+        <label>Resource Name</label>
         <type>Text</type>
     </nameField>
     <pluralLabel>Resources</pluralLabel>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Resource_Mobile</fullName>
+    <fields>Name</fields>
+    <fields>Resource_Type__c</fields>
+    <fields>Stock_Level__c</fields>
+    <fields>Unit__c</fields>
+    <fields>Minimum_Threshold__c</fields>
+    <fields>Storage_Location__c</fields>
+    <label>Resource Mobile</label>
+</CompactLayout>

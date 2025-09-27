@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Current_Occupancy_Within_Capacity</fullName>
+    <active>true</active>
+    <description>Current occupancy cannot exceed total capacity</description>
+    <errorConditionFormula>Current_Occupancy__c  &gt;  Capacity__c</errorConditionFormula>
+    <errorDisplayField>Current_Occupancy__c</errorDisplayField>
+    <errorMessage>Current occupancy cannot exceed total capacity</errorMessage>
+</ValidationRule>

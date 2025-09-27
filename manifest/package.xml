@@ -1,56 +1,321 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-
-    <!-- Custom Objects -->
     <types>
+        <!-- Custom Objects -->
         <members>Disaster__c</members>
         <members>Shelter__c</members>
         <members>Volunteer__c</members>
-        <members>Resorce__c</members>
+        <members>Resource__c</members>
         <members>Request__c</members>
         <name>CustomObject</name>
     </types>
-
-    <!-- Layouts -->
+    
     <types>
-        <members>Disaster__c-Disaster Layout</members>
-        <members>Request__c-Request Layout</members>
-        <members>Resorce__c-Resorce Layout</members>
-        <members>Shelter__c-Shelter Layout</members>
-        <members>Volunteer__c-Volunteer Layout</members>
-        <name>Layout</name>
+        <!-- Custom Fields for Disaster Object -->
+        <members>Disaster__c.Disaster_Type__c</members>
+        <members>Disaster__c.Severity_Level__c</members>
+        <members>Disaster__c.Status__c</members>
+        <members>Disaster__c.Location__c</members>
+        <members>Disaster__c.Affected_Counties__c</members>
+        <members>Disaster__c.Start_Date__c</members>
+        <members>Disaster__c.End_Date__c</members>
+        <members>Disaster__c.Response_Commander__c</members>
+        <members>Disaster__c.Resource_Budget__c</members>
+        <members>Disaster__c.Description__c</members>
+        
+        <!-- Custom Fields for Shelter Object -->
+        <members>Shelter__c.Shelter_Name__c</members>
+        <members>Shelter__c.Location__c</members>
+        <members>Shelter__c.Facility_Type__c</members>
+        <members>Shelter__c.Total_Capacity__c</members>
+        <members>Shelter__c.Current_Occupancy__c</members>
+        <members>Shelter__c.Available_Capacity__c</members>
+        <members>Shelter__c.Capacity_Utilization__c</members>
+        <members>Shelter__c.Operational_Status__c</members>
+        <members>Shelter__c.Special_Needs_Support__c</members>
+        <members>Shelter__c.Contact_Person__c</members>
+        <members>Shelter__c.Phone_Number__c</members>
+        
+        <!-- Custom Fields for Volunteer Object -->
+        <members>Volunteer__c.First_Name__c</members>
+        <members>Volunteer__c.Last_Name__c</members>
+        <members>Volunteer__c.Email__c</members>
+        <members>Volunteer__c.Phone_Number__c</members>
+        <members>Volunteer__c.Emergency_Contact__c</members>
+        <members>Volunteer__c.Skills__c</members>
+        <members>Volunteer__c.Certifications__c</members>
+        <members>Volunteer__c.Experience_Level__c</members>
+        <members>Volunteer__c.Availability_Status__c</members>
+        <members>Volunteer__c.Current_Assignment__c</members>
+        <members>Volunteer__c.Assigned_Disaster__c</members>
+        <members>Volunteer__c.Performance_Rating__c</members>
+        <members>Volunteer__c.Hours_Completed__c</members>
+        
+        <!-- Custom Fields for Resource Object -->
+        <members>Resource__c.Resource_Name__c</members>
+        <members>Resource__c.Resource_Type__c</members>
+        <members>Resource__c.Resource_Category__c</members>
+        <members>Resource__c.Current_Stock_Level__c</members>
+        <members>Resource__c.Unit_of_Measure__c</members>
+        <members>Resource__c.Minimum_Threshold__c</members>
+        <members>Resource__c.Storage_Location__c</members>
+        <members>Resource__c.Availability_Status__c</members>
+        <members>Resource__c.Cost_Per_Unit__c</members>
+        <members>Resource__c.Supplier__c</members>
+        
+        <!-- Custom Fields for Request Object -->
+        <members>Request__c.Requesting_Shelter__c</members>
+        <members>Request__c.Requested_Resource__c</members>
+        <members>Request__c.Quantity_Requested__c</members>
+        <members>Request__c.Priority_Level__c</members>
+        <members>Request__c.Request_Status__c</members>
+        <members>Request__c.Requested_By__c</members>
+        <members>Request__c.Request_Date__c</members>
+        <members>Request__c.Needed_By_Date__c</members>
+        <members>Request__c.Justification__c</members>
+        <members>Request__c.Approved_Quantity__c</members>
+        <members>Request__c.Approved_By__c</members>
+        
+        <name>CustomField</name>
     </types>
-
-    <!-- Compact Layouts -->
-   
-
-    <!-- List Views -->
+    
     <types>
-        <members>Disaster__c.All</members>
-        <members>Request__c.All</members>
-        <members>Resorce__c.All</members>
-        <members>Shelter__c.All</members>
-        <members>Volunteer__c.All</members>
-        <name>ListView</name>
-    </types>
-
-    <!-- FlexiPages -->
-    <types>
-        <members>*</members>
-        <name>FlexiPage</name>
-    </types>
-
-    <types>
-        <members>*</members>
+        <!-- Custom Profiles -->
+        <members>Crisis Manager</members>
+        <members>Volunteer Coordinator</members>
+        <members>Shelter Manager</members>
+        <members>Field Volunteer</members>
         <name>Profile</name>
     </types>
+    
     <types>
-        <members>*</members>
+        <!-- Permission Sets -->
+        <members>Emergency_Response_Access</members>
+        <members>Mobile_Field_Access</members>
         <name>PermissionSet</name>
     </types>
+    
     <types>
-        <members>*</members>
-        <name>CustomApplication</name>
+        <!-- Roles -->
+        <members>Crisis_Command_Director</members>
+        <members>Regional_Crisis_Manager</members>
+        <members>Volunteer_Coordinator</members>
+        <members>Field_Volunteer</members>
+        <members>Resource_Manager</members>
+        <members>Shelter_Supervisor</members>
+        <members>Shelter_Manager</members>
+        <name>Role</name>
     </types>
-    <version>59.0</version>
+    
+    <types>
+        <!-- Page Layouts -->
+        <members>Disaster__c-Disaster Layout</members>
+        <members>Disaster__c-Optimized Disaster Layout</members>
+        <members>Shelter__c-Shelter Layout</members>
+        <members>Shelter__c-Optimized Shelter Layout</members>
+        <members>Volunteer__c-Volunteer Layout</members>
+        <members>Volunteer__c-Optimized Volunteer Layout</members>
+        <members>Resource__c-Resource Layout</members>
+        <members>Resource__c-Optimized Resource Layout</members>
+        <members>Request__c-Request Layout</members>
+        <members>Request__c-Optimized Request Layout</members>
+        <name>Layout</name>
+    </types>
+    
+    <types>
+        <!-- Compact Layouts -->
+        <members>Disaster__c.Disaster_Mobile</members>
+        <members>Shelter__c.Shelter_Mobile</members>
+        <members>Volunteer__c.Volunteer_Mobile</members>
+        <members>Resource__c.Resource_Mobile</members>
+        <members>Request__c.Request_Mobile</members>
+        <name>CompactLayout</name>
+    </types>
+    
+    <types>
+        <!-- Validation Rules -->
+        <members>Disaster__c.End_Date_After_Start_Date</members>
+        <members>Shelter__c.Current_Occupancy_Within_Capacity</members>
+        <members>Request__c.Positive_Quantity_Required</members>
+        <name>ValidationRule</name>
+    </types>
+    
+    <types>
+        <!-- Workflow Rules -->
+        <members>Critical_Disaster_Alert</members>
+        <members>High_Capacity_Warning</members>
+        <name>WorkflowRule</name>
+    </types>
+    
+    <types>
+        <!-- Email Templates -->
+        <members>Emergency_Response_Templates</members>
+        <members>Critical_Disaster_Declaration_Alert</members>
+        <members>Shelter_Capacity_Warning</members>
+        <members>Volunteer_Assignment_Notification</members>
+        <members>Resource_Request_Update</members>
+        <name>EmailTemplate</name>
+    </types>
+    
+    <types>
+        <!-- Workflow Email Alerts -->
+        <members>Critical_Disaster_Alert</members>
+        <members>High_Capacity_Warning</members>
+        <members>Volunteer_Assignment_Alert</members>
+        <members>Resource_Request_Alert</members>
+        <name>WorkflowAlert</name>
+    </types>
+    
+    <types>
+        <!-- Workflow Tasks -->
+        <members>Follow_Up_Critical_Disaster</members>
+        <members>Shelter_Orientation_Task</members>
+        <members>Resource_Inventory_Check</members>
+        <name>WorkflowTask</name>
+    </types>
+    
+    <types>
+        <!-- Workflow Field Updates -->
+        <members>Update_Volunteer_Status_Assigned</members>
+        <members>Update_Request_Status_Under_Review</members>
+        <members>Update_Disaster_Severity_Critical</members>
+        <name>WorkflowFieldUpdate</name>
+    </types>
+    
+    <types>
+        <!-- Process Builder Flows -->
+        <members>Volunteer_Assignment_Automation</members>
+        <members>Resource_Request_Processing</members>
+        <members>Shelter_Capacity_Management</members>
+        <name>Flow</name>
+    </types>
+    
+    <types>
+        <!-- Apex Classes -->
+        <members>ResourceAllocationService</members>
+        <members>BulkResourceProcessor</members>
+        <members>WeatherIntegrationService</members>
+        <members>SMSNotificationService</members>
+        <members>ResourceDashboardController</members>
+        <members>DisasterResponseTestSuite</members>
+        <members>DataMigrationHelper</members>
+        <name>ApexClass</name>
+    </types>
+    
+    <types>
+        <!-- Apex Triggers -->
+        <members>UpdateShelterCapacity</members>
+        <members>DisasterValidation</members>
+        <members>VolunteerAssignment</members>
+        <members>ResourceStockUpdate</members>
+        <name>ApexTrigger</name>
+    </types>
+    
+    <types>
+        <!-- Lightning Web Components -->
+        <members>resourceDashboard</members>
+        <members>shelterCapacityChart</members>
+        <members>volunteerAssignmentMap</members>
+        <members>emergencyAlerts</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    
+    <types>
+        <!-- Reports -->
+        <members>Shelter_Capacity_Overview</members>
+        <members>Active_Resource_Requests</members>
+        <members>Volunteer_Deployment_Status</members>
+        <members>Disaster_Response_Metrics</members>
+        <members>Critical_Resource_Levels</members>
+        <members>Request_Processing_Timeline</members>
+        <name>Report</name>
+    </types>
+    
+    <types>
+        <!-- Dashboards -->
+        <members>Emergency_Response_Command_Center</members>
+        <members>Shelter_Operations_Dashboard</members>
+        <members>Resource_Management_Dashboard</members>
+        <members>Volunteer_Coordination_Dashboard</members>
+        <name>Dashboard</name>
+    </types>
+    
+    <types>
+        <!-- Report Types -->
+        <members>Disasters_with_Shelters</members>
+        <members>Shelters_with_Requests</members>
+        <members>Volunteers_with_Assignments</members>
+        <members>Resources_with_Request_History</members>
+        <name>ReportType</name>
+    </types>
+    
+    <types>
+        <!-- Custom Labels -->
+        <members>Emergency_Contact_Number</members>
+        <members>System_Maintenance_Message</members>
+        <members>Critical_Alert_Threshold</members>
+        <members>Resource_Low_Stock_Warning</members>
+        <members>Volunteer_Safety_Guidelines</members>
+        <name>CustomLabel</name>
+    </types>
+    
+    <types>
+        <!-- Approval Processes -->
+        <members>Resource_Request_Approval</members>
+        <members>Volunteer_Assignment_Approval</members>
+        <members>Budget_Allocation_Approval</members>
+        <name>ApprovalProcess</name>
+    </types>
+    
+    <types>
+        <!-- Queue -->
+        <members>Emergency_Response_Queue</members>
+        <members>Resource_Management_Queue</members>
+        <members>Volunteer_Coordination_Queue</members>
+        <name>Queue</name>
+    </types>
+    
+    <types>
+        <!-- Public Groups -->
+        <members>Crisis_Managers</members>
+        <members>Volunteer_Coordinators</members>
+        <members>Shelter_Managers</members>
+        <members>Field_Volunteers</members>
+        <members>Emergency_Response_Team</members>
+        <name>Group</name>
+    </types>
+    
+    <types>
+        <!-- Sharing Rules -->
+        <members>Volunteer_Coordinator_Access</members>
+        <members>Shelter_Manager_Access</members>
+        <members>Resource_Manager_Access</members>
+        <name>SharingRules</name>
+    </types>
+    
+    <types>
+        <!-- Custom Settings -->
+        <members>Emergency_Response_Settings__c</members>
+        <members>Notification_Settings__c</members>
+        <members>Integration_Settings__c</members>
+        <name>CustomObject</name>
+    </types>
+    
+    <types>
+        <!-- Custom Metadata Types -->
+        <members>Disaster_Configuration__mdt</members>
+        <members>Resource_Threshold__mdt</members>
+        <members>Alert_Configuration__mdt</members>
+        <name>CustomMetadata</name>
+    </types>
+    
+    <types>
+        <!-- Static Resources -->
+        <members>EmergencyResponseIcons</members>
+        <members>DisasterMapImages</members>
+        <members>MobileAppAssets</members>
+        <name>StaticResource</name>
+    </types>
+    
+    <version>60.0</version>
 </Package>

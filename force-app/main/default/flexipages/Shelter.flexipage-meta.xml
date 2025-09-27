@@ -81,6 +81,36 @@
                 <identifier>RecordCurrent_Occupancy_cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Available_Capacity__c</fieldItem>
+                <identifier>RecordAvailable_Capacity__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Capacity_Utilization__c</fieldItem>
+                <identifier>RecordCapacity_Utilization__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Facility_Type__c</fieldItem>
+                <identifier>RecordFacility_Type__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Operational_Status__c</fieldItem>
+                <identifier>RecordOperational_Status__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Special_Needs_Support__c</fieldItem>
+                <identifier>RecordSpecial_Needs_Support__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-e0f6b3ce-dd4f-477e-8b3e-9f6765c5cbff</name>
         <type>Facet</type>
     </flexiPageRegions>

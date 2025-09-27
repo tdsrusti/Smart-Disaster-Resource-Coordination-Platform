@@ -26,6 +26,16 @@
                 <label>Flood</label>
             </value>
             <value>
+                <fullName>Hurricane</fullName>
+                <default>false</default>
+                <label>Hurricane</label>
+            </value>
+            <value>
+                <fullName>Pandemic</fullName>
+                <default>false</default>
+                <label>Pandemic</label>
+            </value>
+            <value>
                 <fullName>Tsunami</fullName>
                 <default>false</default>
                 <label>Tsunami</label>
